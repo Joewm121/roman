@@ -10,7 +10,7 @@
 //   }
 // }
 
-var romanize = function(input) {
+var ones = function(input) {
   var output = "";
   var num = parseInt(input);
 
@@ -21,13 +21,21 @@ var romanize = function(input) {
   } else if (num === 4) {
       output = "IV";
   } else if (num > 4 && num < 9) {
-      output += "V";
-      for (i = 0; i < num - 5; i++) {
-        output += "I";
-      }
+    output += "V";
+    for (i = 0; i < num - 5; i++) {
+      output += "I";
     }
-    return output;
+  } else if (num === 9) {
+    output = "IX";
+  }
+  return output;
 };
+
+// else if (num < 9 && num > 14);
+//   output = "X";
+//   for (i = 0; i < num - 10; i++) {
+//     output += "I";
+//   }
 
 // front-end
 
