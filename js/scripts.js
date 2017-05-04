@@ -9,8 +9,19 @@
 //     output += "I";
 //   }
 // }
+function romanize(input) {
+  var output = "";
 
-var ones = function(input) {
+  if (input.length === 1) {
+    output = ones(input);
+  } else if (input.length === 2) {
+    output = tens(input);
+  }
+
+  return output;
+};
+
+function ones(input) {
   var output = "";
   var num = parseInt(input);
 
@@ -31,11 +42,22 @@ var ones = function(input) {
   return output;
 };
 
-// else if (num < 9 && num > 14);
-//   output = "X";
-//   for (i = 0; i < num - 10; i++) {
-//     output += "I";
-//   }
+function tens(input) {
+  var output = "";
+  var num = parseInt(input);
+
+  if (num > 9 && num < 14) {
+    output += "X";
+    for (i = 0; i < num - 10; i++) {
+      output += "I";
+      }
+    } else if (num === 14) {
+      output = "IVX";
+    }
+
+  return output;
+};
+
 
 // front-end
 
