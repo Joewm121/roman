@@ -15,7 +15,8 @@ function romanize(input) {
   if (input.length === 1) {
     output = ones(input);
   } else if (input.length === 2) {
-    output = tens(input);
+    output += tens(input[0]);
+    output += ones(input[1]);
   }
 
   return output;
@@ -46,14 +47,18 @@ function tens(input) {
   var output = "";
   var num = parseInt(input);
 
-  if (num > 9 && num < 14) {
-    output += "X";
-    for (i = 0; i < num - 10; i++) {
-      output += "I";
-      }
-    } else if (num === 14) {
-      output = "IVX";
+  if (num <= 3) {
+    for (i = 0; i < num; i++) {
+      output += "X";
     }
+  } else if (num === 4) {
+      output = "XL";
+  } else if (num > 4 && num < 9) {
+    output += "L";
+    for (i = 0; i < num - 5; i++) {
+      output += "X";
+    }
+  }
 
   return output;
 };
